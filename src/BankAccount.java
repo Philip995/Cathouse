@@ -30,9 +30,15 @@ public class BankAccount {
     public void setTransactionFee(double transactionFee) {
         this.transactionFee = transactionFee;
     }
+    
+    public double getTransactionFee() {
+        return transactionFee;
+    }
+    
     public void deposit(double amount){
         balance = balance + amount;
     }
+    
     public void withdraw(double amount){
         if(balance - (amount + transactionFee)< 0){
             System.out.println("Error");
@@ -41,11 +47,10 @@ public class BankAccount {
         }
     }
 
-    public static void main(String args[]){
-        BankAccount b1 = new BankAccount("xiaoming",1000);
-        BankAccount b2 = new BankAccount("daming",500);
-
+    public boolean equals(BankAccount acc){
+       return this.name.equals(acc.getName())&&this.balance == acc.getBalance()&& this.transactionFee == acc.getTransactionFee();
+      
     }
-
+    
 
 }
